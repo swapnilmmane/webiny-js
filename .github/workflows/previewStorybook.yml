@@ -22,6 +22,7 @@ jobs:
           node-version: 18
       - run: yarn
       - run: yarn postinstall
+      - run: yarn build:quick
         #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
         # Options required for Chromatic's GitHub Action
