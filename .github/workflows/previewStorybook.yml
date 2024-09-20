@@ -19,8 +19,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          # Fetches all history so Chromatic can compare against previous builds
-          fetch-depth: 0
+          # Conditionally check out based on event type
+          ref: |
+            ${{ github.event_name == 'workflow_dispatch' && github.ref_name || github.event.pull_request.head.sha }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
