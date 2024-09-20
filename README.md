@@ -11,7 +11,7 @@
   <a href="https://twitter.com/WebinyCMS">Twitter</a> 
 </p>
 
-# Test 1
+# Storybook 4
 
 <p align="center">
 
