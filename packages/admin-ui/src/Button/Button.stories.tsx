@@ -26,7 +26,7 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
     args: {
         variant: "primary",
-        text: "Button"
+        text: "Button Of Story this will build from Chromatic in GH Action :) "
     }
 };
 
