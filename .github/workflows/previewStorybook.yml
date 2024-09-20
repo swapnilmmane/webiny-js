@@ -12,6 +12,9 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.comment.body == '/storybook'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Default Branch
+        uses: actions/checkout@v4
+
       - name: Install hub
         run: |
           sudo apt-get install -y hub
@@ -27,7 +30,8 @@ jobs:
           head_branch=$(hub pr show "$pr_number" -f '%H') # Head branch (source)
           echo "head_branch=$head_branch" >> $GITHUB_ENV
 
-      - name: Checkout Repository
+      # Check out the PR's head branch if it's a pull request; otherwise, use the branch on which the action is run manually.
+      - name: Checkout PR Head Branch if it's a PR else use the branch on which action is run mannually
         uses: actions/checkout@v4
         with:
           # Conditionally check out based on event type and use hub fetched branch if needed.
