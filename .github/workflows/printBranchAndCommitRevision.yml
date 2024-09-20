@@ -21,7 +21,7 @@ jobs:
       # Step to fetch and print pull request details using hub
       - name: Get and Print Pull Request Details
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pr_number=${{ github.event.issue.number }}
           head_branch=$(hub pr show "$pr_number" -f '%H') # Head branch
