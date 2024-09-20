@@ -31,6 +31,9 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
+      - name: Post Install
+        run: yarn postinstall
+
       - name: Build
         run: yarn build:quick
 
